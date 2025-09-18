@@ -2,7 +2,7 @@
 
 A scalable Django application that integrates with multiple CRM systems (HubSpot, Zoho) to synchronise file attachments and metadata to a local database.
 
-## Features
+# Features
 
 -  Multiple CRM support (HubSpot, Zoho) with extensible architecture
 -  File synchronisation with duplicate handling
@@ -13,61 +13,61 @@ A scalable Django application that integrates with multiple CRM systems (HubSpot
 -  Mock CRM services for development/testing (no real CRM accounts needed)
 -  Periodic Task Scheduling - Automated maintenance operations(using celery)
 
-## Quick Setup
+# Quick Setup
 
-### 1. Install Dependencies
+## 1. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-### 2. Database Setup
+## 2. Database Setup
 ```bash
 python manage.py makemigrations file_synch
 python manage.py migrate
 ```
 
-### 3. Initialise CRM Providers
+## 3. Initialise CRM Providers
 
 ```bash
 python manage.py setup_crm_providers
 ```
 
-### 4. Start Development Server
+## 4. Start Development Server
 
 ```bash
 bashpython manage.py runserver
 ```
 
-## API Endpoints
+# API Endpoints
 
 - For Api Endpoints refer Postman collection
 
-## Management Commands
+# Management Commands
 
-# Sync all providers
+## Sync all providers
 ```bash
 python manage.py sync_crm_files --all
 ```
-# Sync specific provider
+## Sync specific provider
 ```bash
 python manage.py sync_crm_files --provider hubspot
 ```
-# Sync specific files
+## Sync specific files
 ```bash
 python manage.py sync_crm_files --provider hubspot --files file1 file2
 ```
-## Testing
-# Run all tests
+# Testing
+## Run all tests
 ```bash
 python manage.py test file_synch
 ```
-# Run specific test modules
+## Run specific test modules
 ```bash
 python manage.py test file_synch.tests.test_models
 python manage.py test file_synch.tests.test_services
 python manage.py test file_synch.tests.test_views
 ```
 
-## Mock CRM Data
+# Mock CRM Data
 The system uses mock CRM services that generate realistic test data:
 
 -HubSpot Mock: Generates 4 deals with 2-4 files each (PDFs, DOCX, XLSX, images)
@@ -75,7 +75,7 @@ The system uses mock CRM services that generate realistic test data:
 -File Types: PDF contracts, Word documents, Excel sheets, images, text files
 -Realistic Sizes: 10KB to 800KB with variation
 
-##Database Schema Design
+# Database Schema Design
 
 Entity Relationship Design
 CRMProvider (1) ──────── (N) Deal (1) ──────── (N) FileMetadata
@@ -83,8 +83,9 @@ CRMProvider (1) ──────── (N) Deal (1) ──────── (
      └─────────────── (N) SyncLog ──────────────────┘
 
 
--- Project Submission Summary --
-Approach Summary
+# -- Project Submission Summary --
+
+## Approach Summary
 
 The project follows a clean, layered architecture with a focus on scalability and maintainability. I built a base service class that defines a common interface for CRM integrations, so adding new providers is straightforward without touching the core business logic. This keeps the system organized, flexible, and easy to extend.
 

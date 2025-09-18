@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "c4bd4174-dad3-4ae7-b3e0-e6776ee57a29",
+		"name": "salesvault"
+		
+	},
+	"item": [
+		{
+			"name": "List CRM Providers",
+			"item": [
+				{
+					"name": "List CRM Providers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/api/crm-providers/"
+					},
+					"response": []
+				},
+				{
+					"name": "List Available Files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/available-files/?crm_provider_id=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"available-files",
+								""
+							],
+							"query": [
+								{
+									"key": "crm_provider_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trigger File Sync",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"crm_provider_id\": 1,\r\n  \"file_ids\": [\"hs_file_hs_deal_001_001\", \"hs_file_hs_deal_002_001\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/api/sync/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List Synced Files",
+			"item": [
+				{
+					"name": "files",
+					"item": [
+						{
+							"name": "/api/files/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/api/files/"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/files/?file_type=pdf",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/files/?file_type=pdf",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"files",
+										""
+									],
+									"query": [
+										{
+											"key": "file_type",
+											"value": "pdf"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/files/?sync_status=synced",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/files/?sync_status=synced",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"files",
+										""
+									],
+									"query": [
+										{
+											"key": "sync_status",
+											"value": "synced"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/files/?search=contract",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/files/?search=contract",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"files",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "contract"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/files/?deal_id=1&page=1&per_page=10",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List Deals",
+					"item": [
+						{
+							"name": "/api/deals/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/api/deals/"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/deals/?crm_provider=1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/deals/?crm_provider=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"deals",
+										""
+									],
+									"query": [
+										{
+											"key": "crm_provider",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/deals/?search=acme",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/deals/?search=acme",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"deals",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "acme"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/deals/?page=1&per_page=10",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/deals/?page=1&per_page=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"deals",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "per_page",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Statistics",
+					"item": [
+						{
+							"name": "/api/stats/",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/api/stats/"
+							},
+							"response": []
+						},
+						{
+							"name": "stats for crm_provider=1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/stats/?crm_provider=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"stats",
+										""
+									],
+									"query": [
+										{
+											"key": "crm_provider",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "View Sync Logs",
+					"item": [
+						{
+							"name": "sync-logs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{url}}/api/sync-logs/"
+							},
+							"response": []
+						},
+						{
+							"name": "crm_provider=1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/sync-logs/?crm_provider=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"sync-logs",
+										""
+									],
+									"query": [
+										{
+											"key": "crm_provider",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "level=error",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/sync-logs/?level=error",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"sync-logs",
+										""
+									],
+									"query": [
+										{
+											"key": "level",
+											"value": "error"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

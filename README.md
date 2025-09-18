@@ -97,6 +97,9 @@ I assumed CRM APIs provide stable IDs, that metadata is more useful than full fi
 
 Overall, the system is simple to use, realistic in testing, and easy to extend with real APIs or more advanced features later.
 
+
+### - Note on CRM Connection
+Due to verification issues, I wasn’t able to create live HubSpot or Zoho accounts. Instead, I built realistic mock CRM services that simulate API responses, file structures, and response times. This allowed me to fully test the synchronisation workflow and keep the architecture ready for real CRM integration once valid accounts are available.
      
 
 
